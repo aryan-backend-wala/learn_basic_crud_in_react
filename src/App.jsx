@@ -1,18 +1,19 @@
-import { useId, useState } from "react";
+import { useId, useRef, useState } from "react";
 import AddTitle from "./components/addTitle";
 
 export default function App() {
   const [data, setData] = useState([]);
 
-  const id = useId();
+  const id = useRef(0);
 
   function handleAddTitle(title){
+    id.current += 1
     setData(prevData => {
       return [
         ...prevData,
         {
           title: title,
-          id: id + new Date().toLocaleTimeString()
+          id: id.current
         }
       ]
     })
