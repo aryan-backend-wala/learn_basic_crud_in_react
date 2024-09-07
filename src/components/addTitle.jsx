@@ -1,9 +1,7 @@
 import { useState } from "react"
 
 export default function AddTitle({onAddTitle}){
-  const [title, setTitle] = useState(
-    {id : 0, title: ""}
-  );
+  const [title, setTitle] = useState('');
   return (
     <>
       <label>
@@ -11,16 +9,13 @@ export default function AddTitle({onAddTitle}){
           type="text"
           placeholder="add title"
           name="title"
-          value={title.title}
-          onChange={(e) => setTitle({...title, title: e.target.value})}
+          value={title}
+          onChange={(e) => setTitle(e.target.title)}
         />
       </label>
       <button onClick={() => {
         onAddTitle(title)
-        setTitle({
-          id: title.id + 1,
-          title: ""
-        })
+        setTitle("")
       }}>Add</button>
     </>
   );
