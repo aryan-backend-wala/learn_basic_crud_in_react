@@ -1,7 +1,14 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
-export default function AddTitle({onAddTitle}){
-  const [title, setTitle] = useState('');
+export default function AddTitle({onAddTitle, movie}){
+  const [title, setTitle] = useState("");
+  useEffect(() => {
+    if(movie){
+      setTitle(movie.title)
+    } else {
+      setTitle("")
+    }
+  }, [movie])
   return (
     <>
       <label>
@@ -10,13 +17,13 @@ export default function AddTitle({onAddTitle}){
           placeholder="add title"
           name="title"
           value={title}
-          onChange={(e) => setTitle(e.target.title)}
+          onChange={(e) => setTitle(e.target.value)}
         />
       </label>
       <button onClick={() => {
         onAddTitle(title)
         setTitle("")
-      }}>Add</button>
+      }}>{movie ? 'Save': "Add"}</button>
     </>
   );
 }
