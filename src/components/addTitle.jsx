@@ -10,7 +10,7 @@ export default function AddTitle({onAddTitle, movie}){
     }
   }, [movie])
   return (
-    <>
+    <div className="navbar">
       <label>
         <input 
           type="text"
@@ -24,6 +24,6 @@ export default function AddTitle({onAddTitle, movie}){
         onAddTitle(title)
         setTitle("")
       }}>{movie ? 'Save': "Add"}</button>
-    </>
+    </div>
   );
 }
