@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { Input, Button, ButtonGroup, Box } from '@chakra-ui/react'
 
 export default function AddTitle({onAddTitle, movie}){
   const [title, setTitle] = useState("");
@@ -10,20 +11,22 @@ export default function AddTitle({onAddTitle, movie}){
     }
   }, [movie])
   return (
-    <div className="navbar">
-      <label>
-        <input 
-          type="text"
-          placeholder="add title"
-          name="title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-      </label>
-      <button onClick={() => {
+    <Box>
+      <Input
+        width='auto'
+        marginRight={5}
+        marginLeft={5}
+        htmlSize={40}
+        type="text"
+        placeholder="add title"
+        name="title"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+      />
+      <Button onClick={() => {
         onAddTitle(title)
         setTitle("")
-      }}>{movie ? 'Save': "Add"}</button>
-    </div>
+      }}>{movie ? 'Save': "Add"}</Button>
+    </Box>
   );
 }

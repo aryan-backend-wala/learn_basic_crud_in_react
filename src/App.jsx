@@ -1,3 +1,5 @@
+import { Text } from "@chakra-ui/react"; 
+
 import { useId, useState } from "react";
 import AddTitle from "./components/addTitle";
 import TitleList from "./components/titleList";
@@ -41,7 +43,12 @@ export default function App() {
 
   return (
     <div>
-      <h1>Basic CRUD</h1>
+      <Text 
+        bgGradient="linear(to-l, #7928CA, #FF0080)"
+        bgClip="text"
+        fontSize="6xl"
+        fontWeight="extrabold"
+      >Basic CRUD</Text>
       <AddTitle 
         onAddTitle={handleAddTitle}
         movie={currentMovie}
